@@ -1,0 +1,31 @@
+Program String3_jum_kal;
+Uses Crt;
+Var JumKal : Integer;
+    Kal :  String;
+    Ul : Char;
+Procedure CekJKal(Teks: String; Var JK: Integer);
+Var i: Integer;
+Begin
+If (Teks[1]=' ') or(length(Teks)=0) Then  JK:=0
+ Else JK:=1;
+For i:= 1 To Length(Teks) Do
+ Begin
+  If (Teks[i]=' ') And (Teks[i+1]<>' ') And (Teks[i+2]<>' ') Then Inc(JK)
+  Else If (Teks[i]='-') And (Teks[i-1]<>' ') And (Teks[i+1]<>' ') Then Inc(JK);
+ End;
+End;
+
+Begin
+Repeat
+Clrscr;
+Writeln('Program Menghitung Jumlah Kata Dalam Kalimat');
+Writeln('============================================');
+Writeln;
+Writeln('Masukkan Kalimat:');Readln(Kal);
+CekJKal(Kal,JumKal);
+Writeln;
+Writeln('Jumlah Kata Dalam Kalimat Di Atas Sebanyak: ',JumKal,' Buah');
+Writeln;
+Write('Mau Ulang Lagi [Y/T]: ');Ul:=Upcase(Readkey);
+Until Ul<>'Y';
+End.
